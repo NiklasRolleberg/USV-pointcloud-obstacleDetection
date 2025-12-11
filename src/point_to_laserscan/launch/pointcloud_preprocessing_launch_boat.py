@@ -15,9 +15,9 @@ def generate_launch_description():
        Node(
             package='pointcloud_preprocessing', executable='base_footprint_publisher',
             parameters=[{'use_sim_time': True,
-                         'base_link': 'base_link',
-                         'target_frame': 'base_footprint_2',
-                         'fixed_frame': 'odom',
+                         'base_link': 'evolo/base_link',
+                         'target_frame': 'base_footprint',
+                         'fixed_frame': 'evolo/odom',
                          'zero_heigh_footprint':False #If false, will have same height as base_link
 
                          }],
@@ -31,9 +31,9 @@ def generate_launch_description():
 
             parameters=[{
                 'use_sim_time': True,  # Enable simulation time
-                'base_link': 'base_link',
-                'target_frame': 'base_footprint_2',
-                'fixed_frame': 'odom',
+                'base_link': 'evolo/base_link',
+                'target_frame': 'base_footprint',
+                'fixed_frame': 'evolo/odom',
                 'cloud_frame': 'os_sensor',             
                 'transform_tolerance': 0.01,
                 'min_height_longrange': -8.0,

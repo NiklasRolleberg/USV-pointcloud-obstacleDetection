@@ -12,7 +12,7 @@ def generate_launch_description():
             
             parameters=[{
                 'use_sim_time': True,
-                'fixed_frame': 'odom',
+                'fixed_frame': 'evolo/odom',
                 'cloud_in': '/clustered_points',
                 'R_cov': 0.1,
                 'Q_cov': 0.01,
