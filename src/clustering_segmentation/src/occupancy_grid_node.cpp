@@ -7,7 +7,8 @@
 using namespace std::chrono_literals;
 using std::placeholders::_1;
 int size_of_map_=200; //m
-double grid_size_=2.0;
+//double grid_size_=2.0;
+double grid_size_=1.0;
 
 
 OccupancyGridNode::OccupancyGridNode()

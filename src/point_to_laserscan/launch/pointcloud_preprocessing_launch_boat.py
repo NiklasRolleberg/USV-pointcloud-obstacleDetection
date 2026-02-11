@@ -5,6 +5,9 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
+
+    use_sim_time = LaunchConfiguration('use_sim_time')
+
     return LaunchDescription([
 
         DeclareLaunchArgument(
@@ -12,9 +15,9 @@ def generate_launch_description():
             description='Namespace for sample topics'
         ),
        
-       Node(
+        Node(
             package='pointcloud_preprocessing', executable='base_footprint_publisher',
-            parameters=[{'use_sim_time': True,
+            parameters=[{'use_sim_time': use_sim_time,
                          'base_link': 'evolo/base_link',
                          'target_frame': 'base_footprint',
                          'fixed_frame': 'evolo/odom',
@@ -30,7 +33,7 @@ def generate_launch_description():
             remappings=[('cloud_in', 'ouster/points')],
 
             parameters=[{
-                'use_sim_time': True,  # Enable simulation time
+                'use_sim_time': use_sim_time,  # Enable simulation time
                 'base_link': 'evolo/base_link',
                 'target_frame': 'base_footprint',
                 'fixed_frame': 'evolo/odom',

@@ -7,6 +7,7 @@ ament_auto_find_build_dependencies()
 
 # Explicitly find OpenCV (you can use OpenCV4 if needed)
 find_package(OpenCV REQUIRED)
+find_package(PCL REQUIRED)
 
 # Add your library with all sources
 ament_auto_add_library(bb_dataass_tracking SHARED 

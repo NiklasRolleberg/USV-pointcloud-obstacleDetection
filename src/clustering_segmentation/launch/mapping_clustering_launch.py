@@ -12,7 +12,8 @@ def generate_launch_description():
             output='screen',
             parameters=[
                 {"clustering": True},
-                {"DynamicStatic_clusters_segmentation": False},
+                {"use_sim_time": True},
+                {"DynamicStatic_clusters_segmentation": True},
                 {"static_mapping": False},
                 {"static_points_topic": "static/laserscan"},
                 {"clustering_points_topic_in": "filtered/pc/pointcloud/Projected"},  # "filtered/ls/laserscan_accumulated"

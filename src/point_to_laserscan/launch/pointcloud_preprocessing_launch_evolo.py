@@ -5,6 +5,9 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
+
+    use_sim_time = LaunchConfiguration('use_sim_time')
+
     return LaunchDescription([
 
         DeclareLaunchArgument(
@@ -14,10 +17,10 @@ def generate_launch_description():
        
         Node(
             package='pointcloud_preprocessing', executable='base_footprint_publisher',
-            parameters=[{'use_sim_time': True,
-                         'base_link': 'base_link',
+            parameters=[{'use_sim_time': use_sim_time,
+                         'base_link': 'evolo/base_link',
                          'target_frame': 'base_footprint',
-                         'fixed_frame': 'odom',
+                         'fixed_frame': 'evolo/odom',
                          'zero_heigh_footprint':False #If false, will have same height as base_link
 
                          }],
@@ -27,16 +30,16 @@ def generate_launch_description():
 
         Node(
             package='pointcloud_preprocessing', executable='pointcloud_preprocessing_node',
-            remappings=[('cloud_in', 'ouster/points')],
+            remappings=[('cloud_in', '/evolo/sensors/lidar/points')],
 
             parameters=[{
-                'use_sim_time': True,  # Enable simulation time
+                'use_sim_time': use_sim_time,  # Enable simulation time
                 'print_time_metric':True,
                 'save_time_metric': True,
-                'base_link': 'base_link',
+                'base_link': 'evolo/base_link',
                 'target_frame': 'base_footprint',
-                'fixed_frame': 'odom',
-                'cloud_frame': 'os_sensor',             
+                'fixed_frame': 'evolo/odom',
+                'cloud_frame': 'evolo/lidar_link',
                 'range_min': 2.50,
                 'range_transition': 30.0, #15
                 'range_max': 5000.0,
