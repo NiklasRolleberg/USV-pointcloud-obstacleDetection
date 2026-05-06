@@ -28,12 +28,12 @@ public:
         tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(this);
         odom_pub_ =  this->create_publisher<nav_msgs::msg::Odometry>("footprint_odom",10);
         
-        // Timer at 50 Hz (0.02 seconds)
+        // Timer at 10 Hz (0.1 seconds)
         timer_ = this->create_wall_timer(
-            std::chrono::milliseconds(20),
+            std::chrono::milliseconds(100),
             std::bind(&BaseFootprintPublisher::publishBaseFootprint, this));
         
-        RCLCPP_INFO(this->get_logger(), "Base footprint publisher started at 50Hz");
+        RCLCPP_INFO(this->get_logger(), "Base footprint publisher started at 10Hz");
     }
 
 private:

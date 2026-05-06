@@ -34,8 +34,8 @@ def generate_launch_description():
 
             parameters=[{
                 'use_sim_time': use_sim_time,  # Enable simulation time
-                'print_time_metric':True,
-                'save_time_metric': True,
+                'print_time_metric':False,
+                'save_time_metric': False,
                 'base_link': 'evolo/base_link',
                 'target_frame': 'base_footprint',
                 'fixed_frame': 'evolo/odom',
