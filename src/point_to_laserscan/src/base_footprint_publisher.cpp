@@ -79,7 +79,8 @@ private:
             
             // Create new quaternion with only yaw (roll=0, pitch=0)
             tf2::Quaternion footprint_quat;
-            footprint_quat.setRPY(0, 0, yaw);
+            //footprint_quat.setRPY(0, 0, yaw);
+            footprint_quat.setRPY(0, 0, 0); //Orientation fixed base footprint
             
             base_footprint_transform.transform.rotation.x = footprint_quat.x();
             base_footprint_transform.transform.rotation.y = footprint_quat.y();
